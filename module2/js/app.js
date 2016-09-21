@@ -26,6 +26,7 @@
 
       var toBuy = [
         { name: "cookies", quantity: 10 },
+        { name: "chocolate", quantity: 5 },
         { name: "Pepto Bismol", quantity: 20 },
         { name: "chips", quantity: 15 },
         { name: "noodles", quantity: 2 }
