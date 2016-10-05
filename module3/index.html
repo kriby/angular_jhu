@@ -23,7 +23,7 @@
 
     <!-- found-items should be implemented as a component -->
     <found-items items="list.found" on-remove="list.removeItem(index)"></found-items>
-    <div class="error" ng-if="list.error">{{list.error}}</div>
+    <div class="error" ng-show="list.error" ng-cloak>{{list.error}}</div>
   </div>
 
 <!-- Angular library -->

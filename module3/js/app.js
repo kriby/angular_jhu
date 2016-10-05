@@ -29,7 +29,7 @@
         // process result and only keep items that match
         var foundItems = [];
         if(!searchTerm) {
-          throw new Error('Nothing found');
+          return [];
         };
         for (var i = 0; i < result.data.menu_items.length; i++) {
           var name = result.data.menu_items[i].name;
@@ -39,7 +39,7 @@
         }
         // return processed items
         if(!foundItems.length) {
-          throw new Error('Nothing found');
+          return [];
         }
         return foundItems;
       });
@@ -49,13 +49,17 @@
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
     var list = this;
+
     list.getMatchedMenuItems = function(searchTerm) {
       list.error = '';
+      list.found = [];
       MenuSearchService.getMatchedMenuItems(searchTerm)
       .then(function(foundItems) {
-        list.found = foundItems;
-      }, function(error) {
-        list.error = error.message;
+        if(foundItems.length > 0) {
+          list.found = foundItems;
+        } else {
+          list.error = 'Nothing found';
+        }
       });
     };
 
