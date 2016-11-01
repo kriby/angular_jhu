@@ -1,8 +1,12 @@
 <div class="container">
-  <h2 id="signup-title" class="text-center">Sign Up</h2>
+  <h2 id="signup-title">Sign Up</h2>
 
   <form name='regForm' novalidate>
-
+    <div class='row'>
+      <div class="col-lg-2 offset-lg-4 col-md-2 offset-md-4 col-sm-2 offset-sm-4 col-xs-2 offset-xs-4">
+        <span>First name: </span>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <input type="text" name="firstname" placeholder="Pick a firstname"
           ng-model="signupCtrl.user.firstname"
           required
@@ -16,8 +20,13 @@
           <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
             firstname must not be longer than 10 characters
           </span>
-          <br>
-
+      </div>
+    </div>
+        <div class='row'>
+          <div class="col-lg-2 offset-lg-4 col-md-2 offset-md-4 col-sm-2 offset-sm-4 col-xs-2 offset-xs-4">
+            <span>Last name: </span>
+          </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
           <input type="text" name="lastname" placeholder="Pick a lastname"
             ng-model="signupCtrl.user.lastname"
             required
@@ -31,31 +40,51 @@
             <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
               lastname must not be longer than 10 characters
             </span>
-            <br>
-
-        <input type="email" name="email" placeholder="Email"
+          </div>
+        </div>
+        <div class='row'>
+          <div class="col-lg-2 offset-lg-4 col-md-2 offset-md-4 col-sm-2 offset-sm-4 col-xs-2 offset-xs-4">
+            <span>E-mail: </span>
+          </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <input type="email" name="email" placeholder="Email"
           ng-model="signupCtrl.user.email"
           required>
           <span ng-if="regForm.email.$invalid && regForm.email.$touched">
             Must be a valid email address: handle@domain format
           </span>
-          <br>
-
-        <input type="text" name="phone" placeholder="Phone ###-###-####"
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-lg-2 offset-lg-4 col-md-2 offset-md-4 col-sm-2 offset-sm-4 col-xs-2 offset-xs-4">
+          <span>Phone: </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <input type="text" name="phone" placeholder="Phone ###-###-####"
           ng-model="signupCtrl.user.phone"
           pattern="(\d{3})-(\d{3})-(\d{4})">
           <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
             Phone must be in the format ###-###-####.
           </span>
-          <br>
-
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-lg-2 offset-lg-4 col-md-2 offset-md-4 col-sm-2 offset-sm-4 col-xs-2 offset-xs-4">
+          <span>Favourite dish: </span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
           <input type="text" name="short_name" placeholder=""
             ng-model="signupCtrl.user.short_name"
             </span>
-            <br>
+          </div>
+        </div>
+        <div class='row'>
+          <div class="col-lg-2 offset-lg-4 col-md-2 offset-md-4 col-sm-2 offset-sm-4 col-xs-2 offset-xs-4">
         <button
           ng-disabled="regForm.$invalid"
           ng-click="signupCtrl.submit(signupCtrl.user.short_name)">Submit</button>
+</div>
+</div>
 
           <div style="margin-top: 10px;">
             Form valid? {{ regForm.$valid }}
