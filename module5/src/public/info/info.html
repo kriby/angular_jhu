@@ -1,0 +1,10 @@
+<div ng-show="infoCtrl.user" class="container">
+    <div>First name: {{infoCtrl.user.firstname}}</div>
+    <div>Last name: {{infoCtrl.user.lastname}}</div>
+    <div>Phone: {{infoCtrl.user.phone}}</div>
+    <div>email: {{infoCtrl.user.email}}</div>
+    <menu-item menu-item='infoCtrl.user.item_info'></menu-item>
+</div>
+<div ng-hide='infoCtrl.user'>
+  <span>Not Signed Up Yet. <a ui-sref='public.signup'>Sign up Now!</a></span>
+</div>
